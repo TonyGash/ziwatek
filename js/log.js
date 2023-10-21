@@ -1,6 +1,7 @@
 const loginForm = document.querySelector(".form-box.login"),
-  signupForm = document.querySelector(".form-box.signup");
-
+  signupForm = document.querySelector(".form-box.signup"),
+  date = new Date().getFullYear();
+ 
 // Function to toggle the form popup
 function toggleFormPopup() {
   const formPopup = document.querySelector(".form-popup"),
@@ -38,12 +39,17 @@ function switchForm(formType) {
   }
 }
 
+// Function to switch into hamburger menu
+function burgerMenu() {
+  let linksMenu= document.querySelector('.menu-bar');
+  linksMenu.style.left = 0;
+}
+
 // Add event listeners
 document.querySelector(".login-btn").addEventListener("click", toggleFormPopup);
 document.querySelector(".close-btn").addEventListener("click", closeFormPopup);
-document.querySelector("#signup-link").addEventListener("click", function () {
-  switchForm("signup");
-});
-document.querySelector("#login-link").addEventListener("click", function () {
-  switchForm("login");
-});
+document.querySelector("#signup-link").addEventListener("click", function () {switchForm("signup");});
+document.querySelector("#login-link").addEventListener("click", function () {switchForm("login");});
+document.querySelector(".hamburger-btn").addEventListener("click", () => {burgerMenu();});
+
+document.querySelector("#currentDate").innerHTML = date;

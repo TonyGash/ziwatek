@@ -4,16 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LOGIN</title>
+  <title>Ziwatek | Log In</title>
+  <!--WEB ICON-->
+  <link rel="shortcut icon" href="/images/ziwatek-circle.png"type="image/x-icon">
   <!-- Google Fonts Link For Icons -->
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/log.js" defer></script>
+  <!--FONTAWSOME KIT-->
+  <script src="https://kit.fontawesome.com/fce31c0942.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header>
     <nav class="navbar">
-      <span class="hamburger-btn material-symbols-rounded">menu</span>
       <a href="#" class="logo">
         <img src="images/ziwatek-circle.png" alt="logo">
       </a>
@@ -22,6 +25,24 @@
         <li><a href="#">Contact us</a></li>
       </ul>
       <button class="login-btn">LOG IN</button>
+      <!--
+        Added the menu div, helps toggle between the hamburger menu and the menu depending on screen size, .menu is a container for both
+      -->
+      <div class="menu">
+        <div class="hamburger-btn material-symbols-rounded">
+          <span class="menu-items"></span>
+          <span class="menu-items"></span>
+          <span class="menu-items"></span>
+        </div>
+        <ul class="menu-bar">
+          <li><a href="#">Dairy</a></li>
+          <li><a href="#">Milk Production</a></li>
+          <li><a href="#">Milk Sales</a></li>
+          <li><a href="#">Breeding</a></li>
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Finance</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
@@ -37,7 +58,7 @@
 
       <div class="form-content">
         <h2>LOGIN</h2>
-        <form action="#">
+        <form action="#" method="get">
           <div class="input-field">
             <input type="text" required>
             <label>Email</label>
@@ -63,7 +84,7 @@
       </div>
       <div class="form-content">
         <h2>SIGNUP</h2>
-        <form action="#">
+        <form action="#" method="get">
           <div class="input-field">
             <input type="text" required>
             <label>Enter your email</label>
@@ -88,6 +109,14 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    <div class="copyright">
+      <p>
+        &copy<span id="currentDate"></span> Copyright Ziwatek
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>

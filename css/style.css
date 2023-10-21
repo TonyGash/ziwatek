@@ -9,25 +9,41 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
+  position: relative;
+  min-height: 100vh;
 }
 
 /* Header */
 
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 10px 20px 0;
+  /*
+  Added some padding on top, the items were toucing the top, and the logo was a little bit overflowing and hidden
+  */
 }
+
+  /*
+  the headrer has one nested element,nav, i dont think space-between is ideal here, maybe in the navbar itself, idk what do you think? this is how id do it
+  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 0;
+  }
+  .navbar { 
+    display: flex;
+    align-items: center;
+  }
+  */
 
 .navbar {
+  width: 100%; 
   display: flex;
   align-items: center;
-}
-
-.hamburger-btn {
-  font-size: 30px;
-  cursor: pointer;
+  
+  /* --width covers the whole width of headr which inturn covers whole width of body item, this allows the nav and its items to be be placed wherever at the top, getting? */
 }
 
 .logo {
@@ -47,19 +63,70 @@ header {
   margin-left: 10px;
 }
 
-.links {
+:is(.links,.menu-bar) {
   display: flex;
   list-style: none;
   margin-left: 20px;
 }
 
-.links li {
+:is(.links,.menu-bar) li {
   margin-right: 10px;
 }
 
-.links a {
+:is(.links,.menu-bar) a{
   text-decoration: none;
   color: #000;
+}
+
+.menu{
+  width: fit-content;
+  height: fit-content;
+  justify-self: end;
+}
+
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  place-items: center;
+  padding: 5px;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.menu-items{
+  width: 30px;
+  height: 3px;
+  background: black;
+}
+
+.menu-items:not(:last-child){
+  margin-bottom: 7px;
+}
+
+@media screen and (769px >= width){
+  body{
+    position: relative;
+  }
+  .hamburger-btn {
+    display: flex;
+  }
+  .menu-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    min-width: 45vw;
+    height: 50vh;
+    background: #fff;
+    margin: unset;
+
+    position: absolute;
+    top: 8vh;
+    left: -50vw;
+    z-index: 10;
+    transition: 500ms;
+  }
 }
 
 .login-btn {
@@ -81,7 +148,7 @@ header {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
 
-  visibility: hidden;
+  display: none;
 }
 
 /* Form popup */
@@ -91,17 +158,17 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  max-width: 500px;
   height: auto;
   background-color: #fff;
   padding: 20px;
   z-index: 20;
 
-  visibility: hidden;
+  display: none;
 }
 
 .active-form {
-  visibility: visible;
+  display: inline-block;
   transition: 500ms all;
 }
 
@@ -114,6 +181,7 @@ header {
 }
 
 .form-box {
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -190,4 +258,24 @@ header {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: fit-content;
+  padding: 0 20px 10px;
+}
+
+.copyright{
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+footer p{
+  width: fit-content;
 }
