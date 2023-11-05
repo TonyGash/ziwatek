@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root{
+  --pri-color: #2b8bf1;
+}
+
 /* Body */
 
 body {
@@ -75,7 +79,7 @@ header {
 
 :is(.links,.menu-bar) a{
   text-decoration: none;
-  color: #000;
+  color: inherit;
 }
 
 .menu{
@@ -87,11 +91,12 @@ header {
 .hamburger-btn {
   display: none;
   flex-direction: column;
-  place-items: center;
-  padding: 5px;
+  padding: 10px 8px;
+  margin: 0 5px;
   width: fit-content;
   height: fit-content;
   cursor: pointer;
+  position: relative;
 }
 
 .menu-items{
@@ -108,17 +113,20 @@ header {
   body{
     position: relative;
   }
+
   .hamburger-btn {
     display: flex;
   }
+
   .menu-bar {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     gap: 15px;
     min-width: 45vw;
-    height: 50vh;
-    background: #fff;
+    height: 70vh;
+    background: var(--pri-color);
+    color: #fff;
     margin: unset;
 
     position: absolute;
@@ -126,6 +134,31 @@ header {
     left: -50vw;
     z-index: 10;
     transition: 500ms;
+  }
+
+  :is(.links,.menu-bar) a{
+    padding: 10px 8px;
+  }
+
+  :is(.links,.menu-bar) a:hover {
+    color: #000;
+  }
+
+  .hamburger-btn:hover .menu-items{
+    align-self: flex-end;
+    background: var(--pri-color);
+  }
+  
+  .hamburger-btn:hover .menu-items:first-child{
+    transform: scaleX(0.5);
+  }
+  
+  .hamburger-btn:hover .menu-items:nth-child(2){
+    transform: scaleX(0.7);
+  }
+
+  .active-menu{
+    left: 0;
   }
 }
 
@@ -135,6 +168,10 @@ header {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.login-btn:is(:hover,:focus) {
+  background: var(--pri-color);
 }
 
 /* Blur background overlay */

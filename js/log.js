@@ -1,6 +1,8 @@
 const loginForm = document.querySelector(".form-box.login"),
   signupForm = document.querySelector(".form-box.signup"),
-  date = new Date().getFullYear();
+  date = new Date().getFullYear(),
+  linksMenu = document.querySelector('.menu-bar');
+
  
 // Function to toggle the form popup
 function toggleFormPopup() {
@@ -41,9 +43,29 @@ function switchForm(formType) {
 
 // Function to switch into hamburger menu
 function burgerMenu() {
-  let linksMenu= document.querySelector('.menu-bar');
-  linksMenu.style.left = 0;
+  linksMenu.classList.toggle('active-menu')
 }
+
+function closeBurgerMenu(e) {
+  let menu =  document.querySelector('.hamburger-btn');
+
+  // 1. When document body is clicked, ie outside the menu
+  if(!linksMenu.contains(e.target)&&!menu.contains(e.target)){
+    linksMenu.classList.remove('active-menu')
+  }
+
+
+  // // 2. When escape key is clicked
+  // document.documentElement.addEventListener('keydown', (e) => {
+  //   if (e === 'escape'){
+          // linksMenu.classList.remove('active-menu')
+  //   }
+  // });
+}
+
+//;
+
+
 
 // Add event listeners
 document.querySelector(".login-btn").addEventListener("click", toggleFormPopup);
@@ -51,5 +73,6 @@ document.querySelector(".close-btn").addEventListener("click", closeFormPopup);
 document.querySelector("#signup-link").addEventListener("click", function () {switchForm("signup");});
 document.querySelector("#login-link").addEventListener("click", function () {switchForm("login");});
 document.querySelector(".hamburger-btn").addEventListener("click", () => {burgerMenu();});
+document.documentElement.addEventListener('click', closeBurgerMenu);
 
 document.querySelector("#currentDate").innerHTML = date;
