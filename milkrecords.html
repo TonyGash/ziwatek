@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>milkrecords</title>
+  <link rel="stylesheet" href="./css/milkrecords.css">
+</head>
+<body>
+
+<h2>Milk Production Record</h2>
+
+<form id="milkForm">
+  Cow ID:<br>
+  <input type="text" id="cowID" required><br>
+  Morning Production:<br>
+  <input type="number" id="morning" step="any" required><br>
+  Noon Production:<br>
+  <input type="number" id="noon" step="any" required><br>
+  Evening Production:<br>
+  <input type="number" id="evening" step="any" required><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<h2>Production Report</h2>
+
+<table id="reportTable">
+  <tr>
+    <th>Cow ID</th>
+    <th>Morning</th> 
+    <th>Noon</th>
+    <th>Evening</th>
+    <th>Total</th>
+    <th>Difference</th>
+  </tr>
+</table>
+
+
+<script>
+const milkForm = document.getElementById("milkForm");
+const cowID = document.getElementById("cowID");
+const morning = document.getElementById("morning");
+const noon = document.getElementById("noon");
+const evening = document.getElementById("evening");
+const reportTable = document.getElementById("reportTable");
+
+milkForm.addEventListener("submit", function(event){
+  event.preventDefault();
+  
+  const total = parseFloat(morning.value) + parseFloat(noon.value) + parseFloat(evening.value);
+  const difference = Math.max(parseFloat(morning.value), parseFloat(noon.value), parseFloat(evening.value)) - Math.min(parseFloat(morning.value), parseFloat(noon.value), parseFloat(evening.value));
+  
+  const row = reportTable.insertRow(-1);
+  
+  row.insertCell(0).innerHTML = cowID.value;
+  row.insertCell(1).innerHTML = morning.value;
+  row.insertCell(2).innerHTML = noon.value;
+  row.insertCell(3).innerHTML = evening.value;
+  row.insertCell(4).innerHTML = total;
+  row.insertCell(5).innerHTML = difference;
+
+  // Store the data in localStorage
+  let records = JSON.parse(localStorage.getItem('milkRecords')) || [];
+  records.push({
+    cowID: cowID.value,
+    morning: morning.value,
+    noon: noon.value,
+    evening: evening.value,
+    total: total,
+    difference: difference
+  });
+  localStorage.setItem('milkRecords', JSON.stringify(records));
+
+  milkForm.reset();
+});
+</script>
+<a href="reports.html">Go to Form</a>
+<a href="production.html">Dashboard </a>
+</body>
+</html>
