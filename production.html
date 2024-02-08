@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>production</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./css/production.css">
+<script src="./js/production.js" defer></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Simple semantic HTML structure -->
+
+<body>
+<nav>
+   <div class="grid-container">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="search-icon">search</span><br></br>
+		  
+        </div>
+		
+        <div class="header-right">
+          <span class="notification-icon">notifications</span><br>
+          <span class="eamil-icon">email</span><br>
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+	  
+      <!-- End Header -->
+	  
+  
+          <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined">Ziwatek🐄</span> LOGO
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#">
+              <span class="material-icons-outlined"></span> Dashboard
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#">
+                <span class="material-icons-outlined">Manage breed</span>
+            </a>
+            <ul>
+                <li class="sidebar-list-item">
+                    <a href="add_cow.html">
+                        <span>Add Cow</span>
+                    </a>
+                </li>
+                <!-- Add more options here -->
+            </ul>
+        </li>
+        
+             <li class="sidebar-list-item">
+                <a href="milk produce.html" id="milk-produce-link">
+           <span class="material-icons-outlined">Milk Produce</span>
+                 </a>
+              </li>
+
+          <li class="sidebar-list-item">
+            <a href="heatmonitoring.html">
+              <span class="material-icons-outlined">Heat Monitoring</span>
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#">
+              <span class="material-icons-outlined">Health</span>
+            </a>
+          </li>
+               <li class="sidebar-list-item">
+                <a href="reports.html">
+                <span class="material-icons-outlined">Reports</span> 
+            </a>
+         </li>
+
+		  
+          <li class="sidebar-list-item">
+		<div class="dropdown">  
+		
+    <span class="material-icons-outlined1">Settings</span> 
+	
+  <div class="dropdown-options">
+  <ul class="nested-list">
+    <li>
+      <a href="#" id="light-mode">Light Mode</a>
+    </li>
+    <li>
+      <a href="#" id="dark-mode">Dark Mode</a>
+    </li>
+  </ul>
+</li>
+<li class="sidebar-list-item">
+  <a href="#">
+    <span class="material-icons-outlined">Time</span>
+    <span id="current-time"></span>
+  </a>
+</li>
+<li class="sidebar-list-item">
+  <a href="#">
+    <span class="material-icons-outlined">Language</span>
+    <select id="language-select">
+      <option value="en">English</option>
+      <option value="sw">Swahili</option>
+      <!-- Add more languages as needed -->
+    </select>
+  </a>
+</li>
+
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+  </nav>
+
+  
+ <main >
+ <div class="main-cards">
+  <div class="card">
+  <div class="card-inner">
+    <h2>Total Milk Production</h2>
+    <p>1000 Litres</p>
+  </div>
+  </div>
+  </div>
+  
+  <div class="card_1">
+    <h2>Active Cows</h2>
+    <p>50</p>
+  </div>
+  <!-- Add more cards as needed -->
+    <div class="card_5">
+    <h2>Total Milk Production</h2>
+    <p>1000 Litres</p>
+  </div>
+  <div class="card_2">
+    <h2>Active Cows</h2>
+    <p>50</p>
+  </div>
+  <!-- Add more cards as needed -->
+      <div class="card_3">
+    <h2>Total Milk Production</h2>
+    table>
+  <thead>
+    <tr>
+      <th>Cow ID</th>
+      <th>Date</th>
+      <th>Milk Produced (Litres)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2024-01-29</td>
+      <td>20</td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+</div>
+  <div class="card_4" >
+    <h2>carf</h2>
+    <p>card</p>
+  </div>
+</main>
+</div>
+  
+</body>
+<!-- partial -->
+  
+</body>
+</html>
