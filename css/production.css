@@ -1,39 +1,25 @@
-/* ========== UNIVERSAL RULES ========== */
-
-:root {
-  --primary-color: #6f58c9;
+ vc:root {
+  --primary-color: #6F58C9;
   --bg-color: #f3f3f3;
   --paper-color: #fff;
 }
-
-* {
-  padding: 0;
-  margin: 0;
+html {
   box-sizing: border-box;
-  overflow-x: hidden;
-  font-size: 16px;
-}
-
-@media screen and (min-width: 900px) {
-  * {
-    font-size: 18px;
-  }
-}
-
-html,
-body {
-  font-size: 1em;
+  font-size: 62.5%;
   overflow-y: scroll;
   background: var(--greyLight-1);
-  width: 100vw;
-  min-height: 100vh;
+}
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
   display: grid;
-  height: 100vh;
+  block-size: 100vh;
   grid-template-columns: 260px 1fr;
-  /* container-type: inline-size; */
+  container-type: inline-size;
 }
 
 .material-icons-outlined {
@@ -42,9 +28,66 @@ body {
   font-size: 20px;
 }
 
-/* ========== SIDE BAR ========== */
+body.light-mode {
+  background-color: #fff;
+  color: #000;
+}
 
+body.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+nav {
+  background-color: var(--primary-color);
+  
+  @container (max-inline-size: 960px) {
+    block-size: 4rem;
+  }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    'sidebar header header header'
+    'sidebar main main main';
+  height: 100vh;
+}
+/* ---------- HEADER ---------- */
+
+ .header {
+  grid-area: header;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5 30px 0 30px;
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+  .header-left{
+	cursor: pointer;
+    display: flex;	
+	
+  }
+  .search-icon{
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+   .header-right{
+	cursor: pointer;
+    display: flex;
+  }
+ 
+.menu-icon {
+  display: none;
+}
+
+
+/* ---------- SIDEBAR ---------- */
 #sidebar {
+  grid-area: sidebar;
   height: 100%;
   background-color: rgb(29, 38, 154);
   color: rgb(255, 255, 255);
@@ -55,83 +98,201 @@ body {
 
 .sidebar-title {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 20px 30px;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 30px;
 }
 
 .sidebar-title > span {
   display: none;
 }
 
-.sidebar-title> .material-icons-outlined {
+.sidebar-brand {
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.sidebar-brand > .material-icons-outlined {
   font-size: 50px;
 }
 
-.sidebar-title a{
-  width: fit-content;
-  height: fit-content;
-  img{
-    width: 150px;
-    height: auto;
-  }
-}
-
 .sidebar-list {
-  padding: 20px 0;
+  padding: 0;
+  margin-top: 15px;
   list-style-type: none;
-  display: grid;
-  gap: 10px;
 }
 
 .sidebar-list-item {
-  padding: 15px 20px;
-  font-size: 1.125em;
+  padding: 20px 20px 20px 20px;
+  font-size: 18px;
+}
+
+.sidebar-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  &:hover{
-    background-color: #ffffff33;
-  }
 }
 
 .sidebar-list-item > a {
   text-decoration: none;
-  color: #b4b8f4;
+  color: rgb(180, 184, 244);
 }
 
+.sidebar-responsive {
+  display: inline !important;
+  position: absolute;
+}
 .dropdown {
   display: inline;
   position: relative;
 }
 
-.dropdown ul {
+
+
+.dropdown-options {
   display: none;
   position: relative;
   overflow: auto;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+  background-color:#fff;
+  border-radius:5px;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
 }
 
-.dropdown:hover ul {
+.dropdown:hover .dropdown-options {
   display: block;
 }
 
-
-.dropdown  a {
+.dropdown-options a {
   display: block;
   color: #000000;
   padding: 5px;
   text-decoration: none;
-  padding: 10px 20px;
+  padding:10px 20px;
 }
 
-.dropdown a:hover {
+.dropdown-options a:hover {
   color: #0a0a23;
   background-color: #ddd;
-  border-radius: 5px;
+  border-radius:5px;
 }
-
 /* Defining the grid for main content area: */
 #milk-produce-link.active {
   background-color: #ddd; /* Or any other styles you want */
+}
+/* ---------- MAIN ---------- */
+
+
+main {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 1rem;
+  
+}
+.main-cards {
+  display: grid;
+  color: blue;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+ .card {
+  background-color: rgb(215,140,40);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+ }
+ .card_1 {
+  background-color: rgb(255, 0, 200);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+ }
+ 
+  .card_2 {
+  background-color: rgb(26, 128, 0);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+ }
+  .card_3 {
+  background-color: pink;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+ }
+  .card_4 {
+  background-color: rgb(163, 163, 130);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+ }
+  .card_5 {
+  background-color: grey;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+ }
+ .card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card:first-child {
+  background-color: rgb(213, 0, 0);
+}
+
+.card:nth-child(2) {
+  background-color: rgb(46, 125, 50);
+}
+
+.card:nth-child(3) {
+  background-color: rgb(255, 111, 0);
+}
+
+.card:nth-child(4) {
+  background-color: rgb(29, 38, 154);
+}
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-inner > span {
+  font-size: 50px;
+}
+ 
+/* Container Queries for the main area */
+  @container (max-inline-size: 960px) {
+    .selector{
+    block-size: 100vh;
+  }
+}
+  @container (max-width: 680px) {
+    .selector {
+        display: block;
+    }
+}
+
+
+
+
+/* Only Media Query: */
+
+@media (max-width: 960px) {
+  body {
+    display: block;
+    overflow: scroll;
+  }
 }
