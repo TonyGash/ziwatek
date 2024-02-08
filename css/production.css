@@ -1,0 +1,137 @@
+/* ========== UNIVERSAL RULES ========== */
+
+:root {
+  --primary-color: #6f58c9;
+  --bg-color: #f3f3f3;
+  --paper-color: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 900px) {
+  * {
+    font-size: 18px;
+  }
+}
+
+html,
+body {
+  font-size: 1em;
+  overflow-y: scroll;
+  background: var(--greyLight-1);
+  width: 100vw;
+  min-height: 100vh;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 260px 1fr;
+  /* container-type: inline-size; */
+}
+
+.material-icons-outlined {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 20px;
+}
+
+/* ========== SIDE BAR ========== */
+
+#sidebar {
+  height: 100%;
+  background-color: rgb(29, 38, 154);
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 20px 30px;
+}
+
+.sidebar-title > span {
+  display: none;
+}
+
+.sidebar-title> .material-icons-outlined {
+  font-size: 50px;
+}
+
+.sidebar-title a{
+  width: fit-content;
+  height: fit-content;
+  img{
+    width: 150px;
+    height: auto;
+  }
+}
+
+.sidebar-list {
+  padding: 20px 0;
+  list-style-type: none;
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar-list-item {
+  padding: 15px 20px;
+  font-size: 1.125em;
+  cursor: pointer;
+  &:hover{
+    background-color: #ffffff33;
+  }
+}
+
+.sidebar-list-item > a {
+  text-decoration: none;
+  color: #b4b8f4;
+}
+
+.dropdown {
+  display: inline;
+  position: relative;
+}
+
+.dropdown ul {
+  display: none;
+  position: relative;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+
+
+.dropdown  a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.dropdown a:hover {
+  color: #0a0a23;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+/* Defining the grid for main content area: */
+#milk-produce-link.active {
+  background-color: #ddd; /* Or any other styles you want */
+}
